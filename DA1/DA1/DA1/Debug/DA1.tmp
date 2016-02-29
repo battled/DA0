@@ -1,0 +1,41 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.52</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.39.1005\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.39.1005\avrassembler\Include\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\Debug/DA1.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>DA1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>DA1.map</FILE>
+  <FILE>DA1.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <keepgoing><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>26</LINE></keepgoing>
+  <valsread><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>33</LINE></valsread>
+  <newNum><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>51</LINE></newNum>
+  <noProb7><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>59</LINE></noProb7>
+  <sub7><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>61</LINE></sub7>
+  <divis7><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>66</LINE></divis7>
+  <notdivis7><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>72</LINE></notdivis7>
+  <ovflo7><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>70</LINE></ovflo7>
+  <noprob3><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>78</LINE></noprob3>
+  <sub3><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>80</LINE></sub3>
+  <divis3><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>85</LINE></divis3>
+  <notdivis3><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>91</LINE></notdivis3>
+  <ovflo3><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>89</LINE></ovflo3>
+  <sumdone><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>96</LINE></sumdone>
+  <noCarry><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>104</LINE></noCarry>
+  <done><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA1\DA1\DA1.asm</FILE><LINE>106</LINE></done>
+ </LABELS>
+</ASSEMBLER_INFO>
