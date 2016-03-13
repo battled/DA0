@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{18226A42-8477-4023-8AD2-40C49DA407C9}") = "DA2T1ASM", "DA2T1ASM\DA2T1ASM.asmproj", "{DE15FE4B-0206-4615-83A2-829F7D073C59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE15FE4B-0206-4615-83A2-829F7D073C59}.Debug|AVR.ActiveCfg = Debug|AVR
+		{DE15FE4B-0206-4615-83A2-829F7D073C59}.Debug|AVR.Build.0 = Debug|AVR
+		{DE15FE4B-0206-4615-83A2-829F7D073C59}.Release|AVR.ActiveCfg = Release|AVR
+		{DE15FE4B-0206-4615-83A2-829F7D073C59}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

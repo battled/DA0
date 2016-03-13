@@ -1,8 +1,12 @@
-;
-; DA2new.asm
+
+;  DA2T1ASM.asm
+; 
+;  Created: 3/12/2016 8:23:42 PM
+;    Author: battled
+
 ;
 ; Created: 3/9/2016 10:21:51 AM
-;task 1 in asm
+;task 1 in asm (toggle pc0
 ; Author : desi.battle
 ;
 
@@ -16,11 +20,8 @@ OUT SPL,R16
 
 INITSTACK ;use Macro here
 
-;Make entire port B output.
-LDI R16, 0XFF
-OUT DDRB, R16
 LDI R16, 0X01
-OUT DDRC, R16; MAKE PC0 OUTPUTS
+OUT DDRC, R16; MAKE PC0 OUTPUT
 ;set 0th bit in r16 to 1 for EOR with PC0 
 LDI R16,0b00000001			;eor reg for PC0
 LDI R17,0x80				;portc temp holder
