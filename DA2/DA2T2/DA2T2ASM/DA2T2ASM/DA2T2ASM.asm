@@ -2,7 +2,7 @@
 ; DA2new.asm
 ;
 ; Created: 3/9/2016 10:21:51 AM
-;task 2 in asm
+; task 2 in asm (Flip C0 and count on B)
 ; Author : desi.battle
 ;
 

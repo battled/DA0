@@ -1,0 +1,35 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.52</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\student\Documents\Atmel Studio\6.1\DA2T4ASM\DA2T4ASM\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.39.1005\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA2T4ASM\DA2T4ASM\DA2T4ASM.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.39.1005\avrassembler\Include\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA2T4ASM\DA2T4ASM\Debug/DA2T4ASM.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>DA2T4ASM.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>DA2T4ASM.map</FILE>
+  <FILE>DA2T4ASM.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MAIN><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA2T4ASM\DA2T4ASM\DA2T4ASM.asm</FILE><LINE>51</LINE></MAIN>
+  <PCINTX><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA2T4ASM\DA2T4ASM\DA2T4ASM.asm</FILE><LINE>13</LINE></PCINTX>
+  <NOCOUNT><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA2T4ASM\DA2T4ASM\DA2T4ASM.asm</FILE><LINE>38</LINE></NOCOUNT>
+  <DOFIVE><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA2T4ASM\DA2T4ASM\DA2T4ASM.asm</FILE><LINE>22</LINE></DOFIVE>
+  <DOTEN><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA2T4ASM\DA2T4ASM\DA2T4ASM.asm</FILE><LINE>26</LINE></DOTEN>
+  <DONEFLIP><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA2T4ASM\DA2T4ASM\DA2T4ASM.asm</FILE><LINE>34</LINE></DONEFLIP>
+  <STOREFLIP><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA2T4ASM\DA2T4ASM\DA2T4ASM.asm</FILE><LINE>29</LINE></STOREFLIP>
+  <BEGIN><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA2T4ASM\DA2T4ASM\DA2T4ASM.asm</FILE><LINE>72</LINE></BEGIN>
+  <DELAY><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA2T4ASM\DA2T4ASM\DA2T4ASM.asm</FILE><LINE>80</LINE></DELAY>
+  <AGAIN><FILE>C:\Users\student\Documents\Atmel Studio\6.1\DA2T4ASM\DA2T4ASM\DA2T4ASM.asm</FILE><LINE>90</LINE></AGAIN>
+ </LABELS>
+</ASSEMBLER_INFO>
