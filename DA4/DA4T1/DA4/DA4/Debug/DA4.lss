@@ -1,0 +1,460 @@
+
+DA4.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00000244  000002b8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000244  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .stab         000006cc  00000000  00000000  000002b8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000097  00000000  00000000  00000984  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .comment      0000002f  00000000  00000000  00000a1b  2**0
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000020  00000000  00000000  00000a4a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000001e2  00000000  00000000  00000a6a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000129  00000000  00000000  00000c4c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000001c7  00000000  00000000  00000d75  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000034  00000000  00000000  00000f3c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000000fb  00000000  00000000  00000f70  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000000a4  00000000  00000000  0000106b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000028  00000000  00000000  0000110f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 40 00 	call	0x80	; 0x80 <main>
+  78:	0c 94 20 01 	jmp	0x240	; 0x240 <_exit>
+
+0000007c <__bad_interrupt>:
+  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000080 <main>:
+#include <avr/io.h>
+//delay constant
+#define DEL 25
+
+int main(void)
+{
+  80:	cf 93       	push	r28
+  82:	df 93       	push	r29
+  84:	cd b7       	in	r28, 0x3d	; 61
+  86:	de b7       	in	r29, 0x3e	; 62
+  88:	28 97       	sbiw	r28, 0x08	; 8
+  8a:	0f b6       	in	r0, 0x3f	; 63
+  8c:	f8 94       	cli
+  8e:	de bf       	out	0x3e, r29	; 62
+  90:	0f be       	out	0x3f, r0	; 63
+  92:	cd bf       	out	0x3d, r28	; 61
+
+// the x array is created to shift colors starting dc for 
+// each frequency(more explanation below)
+	int x[3];
+	int i=0;
+	TCCR0A = (0<<COM0A1)|(0<<COM0A0)|(1<<COM0B1)|(1<<COM0B0)|(1<<WGM01) | (1<<WGM00);
+  94:	83 e3       	ldi	r24, 0x33	; 51
+  96:	84 bd       	out	0x24, r24	; 36
+	TCCR0B = (0<<FOC0A )|(0<<FOC0B) |(1<<WGM02) |(0<<CS02)  |(0<<CS01)  | (1<<CS00);
+  98:	99 e0       	ldi	r25, 0x09	; 9
+  9a:	95 bd       	out	0x25, r25	; 37
+	//configure timer1 the same as timer 0
+	TCCR1A = (0<<COM1A1)|(0<<COM1A0)|(1<<COM1B1)|(1<<COM1B0)|(1<<WGM11)|(1<<WGM10);
+  9c:	80 93 80 00 	sts	0x0080, r24
+	TCCR1B = (0<<ICNC1) |(0<<ICES1) |(1<<WGM13) |(1<<WGM12) |(0<<CS12) |(0<< CS11)|(1<<CS10);
+  a0:	29 e1       	ldi	r18, 0x19	; 25
+  a2:	20 93 81 00 	sts	0x0081, r18
+	//configure timer2 identically to timer 0
+	TCCR2A = (0<<COM2A1)|(0<<COM2A0)|(1<<COM2B1)|(1<<COM2B0)|(1<<WGM21) | (1<<WGM20);
+  a6:	80 93 b0 00 	sts	0x00B0, r24
+	TCCR2B = (0<<FOC2A )|(0<<FOC2B) |(1<<WGM22) |(0<<CS22)  |(0<<CS21)  | (1<<CS20);	
+  aa:	90 93 b1 00 	sts	0x00B1, r25
+
+	//SET PORT D AND B AS OUTPUTS
+	DDRB=0XFF;
+  ae:	8f ef       	ldi	r24, 0xFF	; 255
+  b0:	84 b9       	out	0x04, r24	; 4
+	DDRD=0xFF;
+  b2:	8a b9       	out	0x0a, r24	; 10
+	//use OCRA for frequency changes, OCRB for duty cycle
+
+// the x array is created to shift colors starting dc for 
+// each frequency(more explanation below)
+	int x[3];
+	int i=0;
+  b4:	81 2c       	mov	r8, r1
+  b6:	91 2c       	mov	r9, r1
+
+    while(1)
+    {
+			//start at minimum frequency and gradually decrease
+			//frequency for all three colors
+				for(int freq=225; freq > 25; freq -= 25)
+  b8:	0f 2e       	mov	r0, r31
+  ba:	f1 ee       	ldi	r31, 0xE1	; 225
+  bc:	4f 2e       	mov	r4, r31
+  be:	51 2c       	mov	r5, r1
+  c0:	f0 2d       	mov	r31, r0
+					//cycle for the next frequency 
+					i++;
+					int freq=225;
+					_delay_ms(DEL);
+					OCR0A = freq;
+					OCR1A = freq;
+  c2:	0f 2e       	mov	r0, r31
+  c4:	f1 ee       	ldi	r31, 0xE1	; 225
+  c6:	2f 2e       	mov	r2, r31
+  c8:	31 2c       	mov	r3, r1
+  ca:	f0 2d       	mov	r31, r0
+					//maximum when they get to 0% dc
+					//add increasing prime numbers to allow mixture of 
+					//all possible duty cycles.
+						OCR0B +=2;	//BLUE
+						if (OCR0B >=freq)
+							OCR0B= x[(i+1)%3];
+  cc:	0f 2e       	mov	r0, r31
+  ce:	f3 e0       	ldi	r31, 0x03	; 3
+  d0:	6f 2e       	mov	r6, r31
+  d2:	71 2c       	mov	r7, r1
+  d4:	f0 2d       	mov	r31, r0
+						OCR1B +=3;			//GREEN
+  d6:	2a e8       	ldi	r18, 0x8A	; 138
+  d8:	30 e0       	ldi	r19, 0x00	; 0
+						if (OCR1B >=freq)
+							OCR1B=x[(i+2)%3];			
+						OCR2B +=5;			//RED
+  da:	e4 eb       	ldi	r30, 0xB4	; 180
+  dc:	f0 e0       	ldi	r31, 0x00	; 0
+					// they increment at the same rate but 
+					// duty cycle starts 1/3*freq apart from each other
+					// (100%, 66%, and 33%)
+					for(int dc=0; dc <= freq; dc++)
+					{
+						x[0] = freq/3;
+  de:	0f 2e       	mov	r0, r31
+  e0:	fb e4       	ldi	r31, 0x4B	; 75
+  e2:	ef 2e       	mov	r14, r31
+  e4:	f1 2c       	mov	r15, r1
+  e6:	f0 2d       	mov	r31, r0
+						x[1] = 2*freq/3;
+  e8:	06 e9       	ldi	r16, 0x96	; 150
+  ea:	10 e0       	ldi	r17, 0x00	; 0
+			//frequency for all three colors
+				for(int freq=225; freq > 25; freq -= 25)
+				{
+					//incremented to shift which color has the dominant duty
+					//cycle for the next frequency 
+					i++;
+  ec:	6f ef       	ldi	r22, 0xFF	; 255
+  ee:	86 1a       	sub	r8, r22
+  f0:	96 0a       	sbc	r9, r22
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  f2:	8f e4       	ldi	r24, 0x4F	; 79
+  f4:	93 ec       	ldi	r25, 0xC3	; 195
+  f6:	01 97       	sbiw	r24, 0x01	; 1
+  f8:	f1 f7       	brne	.-4      	; 0xf6 <main+0x76>
+  fa:	00 c0       	rjmp	.+0      	; 0xfc <main+0x7c>
+  fc:	00 00       	nop
+					int freq=225;
+					_delay_ms(DEL);
+					OCR0A = freq;
+  fe:	91 ee       	ldi	r25, 0xE1	; 225
+ 100:	97 bd       	out	0x27, r25	; 39
+					OCR1A = freq;
+ 102:	a8 e8       	ldi	r26, 0x88	; 136
+ 104:	b0 e0       	ldi	r27, 0x00	; 0
+ 106:	11 96       	adiw	r26, 0x01	; 1
+ 108:	3c 92       	st	X, r3
+ 10a:	2e 92       	st	-X, r2
+					OCR2A = freq;
+ 10c:	a3 eb       	ldi	r26, 0xB3	; 179
+ 10e:	b0 e0       	ldi	r27, 0x00	; 0
+ 110:	9c 93       	st	X, r25
+#include <util/delay.h>
+#include <avr/io.h>
+//delay constant
+#define DEL 25
+
+int main(void)
+ 112:	c4 01       	movw	r24, r8
+ 114:	01 96       	adiw	r24, 0x01	; 1
+					//maximum when they get to 0% dc
+					//add increasing prime numbers to allow mixture of 
+					//all possible duty cycles.
+						OCR0B +=2;	//BLUE
+						if (OCR0B >=freq)
+							OCR0B= x[(i+1)%3];
+ 116:	b3 01       	movw	r22, r6
+ 118:	0e 94 f8 00 	call	0x1f0	; 0x1f0 <__divmodhi4>
+ 11c:	5c 01       	movw	r10, r24
+#include <util/delay.h>
+#include <avr/io.h>
+//delay constant
+#define DEL 25
+
+int main(void)
+ 11e:	c4 01       	movw	r24, r8
+ 120:	02 96       	adiw	r24, 0x02	; 2
+						OCR0B +=2;	//BLUE
+						if (OCR0B >=freq)
+							OCR0B= x[(i+1)%3];
+						OCR1B +=3;			//GREEN
+						if (OCR1B >=freq)
+							OCR1B=x[(i+2)%3];			
+ 122:	b3 01       	movw	r22, r6
+ 124:	0e 94 f8 00 	call	0x1f0	; 0x1f0 <__divmodhi4>
+ 128:	6c 01       	movw	r12, r24
+						OCR2B +=5;			//RED
+						if (OCR2B >=freq)
+							OCR2B=x[i%3];
+ 12a:	c4 01       	movw	r24, r8
+ 12c:	b3 01       	movw	r22, r6
+ 12e:	0e 94 f8 00 	call	0x1f0	; 0x1f0 <__divmodhi4>
+ 132:	42 ee       	ldi	r20, 0xE2	; 226
+ 134:	50 e0       	ldi	r21, 0x00	; 0
+					//maximum when they get to 0% dc
+					//add increasing prime numbers to allow mixture of 
+					//all possible duty cycles.
+						OCR0B +=2;	//BLUE
+						if (OCR0B >=freq)
+							OCR0B= x[(i+1)%3];
+ 136:	d5 01       	movw	r26, r10
+ 138:	aa 0f       	add	r26, r26
+ 13a:	bb 1f       	adc	r27, r27
+ 13c:	61 e0       	ldi	r22, 0x01	; 1
+ 13e:	70 e0       	ldi	r23, 0x00	; 0
+ 140:	6c 0f       	add	r22, r28
+ 142:	7d 1f       	adc	r23, r29
+ 144:	a6 0f       	add	r26, r22
+ 146:	b7 1f       	adc	r27, r23
+						OCR1B +=3;			//GREEN
+						if (OCR1B >=freq)
+							OCR1B=x[(i+2)%3];			
+ 148:	cc 0c       	add	r12, r12
+ 14a:	dd 1c       	adc	r13, r13
+ 14c:	c6 0e       	add	r12, r22
+ 14e:	d7 1e       	adc	r13, r23
+						OCR2B +=5;			//RED
+						if (OCR2B >=freq)
+							OCR2B=x[i%3];
+ 150:	88 0f       	add	r24, r24
+ 152:	99 1f       	adc	r25, r25
+ 154:	86 0f       	add	r24, r22
+ 156:	97 1f       	adc	r25, r23
+ 158:	5d 01       	movw	r10, r26
+ 15a:	98 87       	std	Y+8, r25	; 0x08
+ 15c:	8f 83       	std	Y+7, r24	; 0x07
+					// they increment at the same rate but 
+					// duty cycle starts 1/3*freq apart from each other
+					// (100%, 66%, and 33%)
+					for(int dc=0; dc <= freq; dc++)
+					{
+						x[0] = freq/3;
+ 15e:	fa 82       	std	Y+2, r15	; 0x02
+ 160:	e9 82       	std	Y+1, r14	; 0x01
+						x[1] = 2*freq/3;
+ 162:	1c 83       	std	Y+4, r17	; 0x04
+ 164:	0b 83       	std	Y+3, r16	; 0x03
+						x[2] = 0;
+ 166:	1e 82       	std	Y+6, r1	; 0x06
+ 168:	1d 82       	std	Y+5, r1	; 0x05
+ 16a:	8f e4       	ldi	r24, 0x4F	; 79
+ 16c:	93 ec       	ldi	r25, 0xC3	; 195
+ 16e:	01 97       	sbiw	r24, 0x01	; 1
+ 170:	f1 f7       	brne	.-4      	; 0x16e <main+0xee>
+ 172:	00 c0       	rjmp	.+0      	; 0x174 <main+0xf4>
+ 174:	00 00       	nop
+
+					//increment the duty cycles and reset them to their
+					//maximum when they get to 0% dc
+					//add increasing prime numbers to allow mixture of 
+					//all possible duty cycles.
+						OCR0B +=2;	//BLUE
+ 176:	68 b5       	in	r22, 0x28	; 40
+ 178:	6e 5f       	subi	r22, 0xFE	; 254
+ 17a:	68 bd       	out	0x28, r22	; 40
+						if (OCR0B >=freq)
+ 17c:	68 b5       	in	r22, 0x28	; 40
+ 17e:	70 e0       	ldi	r23, 0x00	; 0
+ 180:	61 3e       	cpi	r22, 0xE1	; 225
+ 182:	71 05       	cpc	r23, r1
+ 184:	1c f0       	brlt	.+6      	; 0x18c <main+0x10c>
+							OCR0B= x[(i+1)%3];
+ 186:	d5 01       	movw	r26, r10
+ 188:	6c 91       	ld	r22, X
+ 18a:	68 bd       	out	0x28, r22	; 40
+						OCR1B +=3;			//GREEN
+ 18c:	d9 01       	movw	r26, r18
+ 18e:	6d 91       	ld	r22, X+
+ 190:	7c 91       	ld	r23, X
+ 192:	11 97       	sbiw	r26, 0x01	; 1
+ 194:	6d 5f       	subi	r22, 0xFD	; 253
+ 196:	7f 4f       	sbci	r23, 0xFF	; 255
+ 198:	11 96       	adiw	r26, 0x01	; 1
+ 19a:	7c 93       	st	X, r23
+ 19c:	6e 93       	st	-X, r22
+						if (OCR1B >=freq)
+ 19e:	6d 91       	ld	r22, X+
+ 1a0:	7c 91       	ld	r23, X
+ 1a2:	61 3e       	cpi	r22, 0xE1	; 225
+ 1a4:	71 05       	cpc	r23, r1
+ 1a6:	38 f0       	brcs	.+14     	; 0x1b6 <main+0x136>
+							OCR1B=x[(i+2)%3];			
+ 1a8:	d6 01       	movw	r26, r12
+ 1aa:	6d 91       	ld	r22, X+
+ 1ac:	7c 91       	ld	r23, X
+ 1ae:	d9 01       	movw	r26, r18
+ 1b0:	11 96       	adiw	r26, 0x01	; 1
+ 1b2:	7c 93       	st	X, r23
+ 1b4:	6e 93       	st	-X, r22
+						OCR2B +=5;			//RED
+ 1b6:	60 81       	ld	r22, Z
+ 1b8:	6b 5f       	subi	r22, 0xFB	; 251
+ 1ba:	60 83       	st	Z, r22
+						if (OCR2B >=freq)
+ 1bc:	60 81       	ld	r22, Z
+ 1be:	70 e0       	ldi	r23, 0x00	; 0
+ 1c0:	61 3e       	cpi	r22, 0xE1	; 225
+ 1c2:	71 05       	cpc	r23, r1
+ 1c4:	24 f0       	brlt	.+8      	; 0x1ce <main+0x14e>
+							OCR2B=x[i%3];
+ 1c6:	af 81       	ldd	r26, Y+7	; 0x07
+ 1c8:	b8 85       	ldd	r27, Y+8	; 0x08
+ 1ca:	6c 91       	ld	r22, X
+ 1cc:	60 83       	st	Z, r22
+ 1ce:	41 50       	subi	r20, 0x01	; 1
+ 1d0:	51 09       	sbc	r21, r1
+
+					// step up the duty cycle for each color
+					// they increment at the same rate but 
+					// duty cycle starts 1/3*freq apart from each other
+					// (100%, 66%, and 33%)
+					for(int dc=0; dc <= freq; dc++)
+ 1d2:	29 f6       	brne	.-118    	; 0x15e <main+0xde>
+
+    while(1)
+    {
+			//start at minimum frequency and gradually decrease
+			//frequency for all three colors
+				for(int freq=225; freq > 25; freq -= 25)
+ 1d4:	b9 e1       	ldi	r27, 0x19	; 25
+ 1d6:	4b 1a       	sub	r4, r27
+ 1d8:	51 08       	sbc	r5, r1
+ 1da:	6a e1       	ldi	r22, 0x1A	; 26
+ 1dc:	46 16       	cp	r4, r22
+ 1de:	51 04       	cpc	r5, r1
+ 1e0:	0c f0       	brlt	.+2      	; 0x1e4 <main+0x164>
+ 1e2:	84 cf       	rjmp	.-248    	; 0xec <main+0x6c>
+ 1e4:	0f 2e       	mov	r0, r31
+ 1e6:	f1 ee       	ldi	r31, 0xE1	; 225
+ 1e8:	4f 2e       	mov	r4, r31
+ 1ea:	51 2c       	mov	r5, r1
+ 1ec:	f0 2d       	mov	r31, r0
+ 1ee:	7e cf       	rjmp	.-260    	; 0xec <main+0x6c>
+
+000001f0 <__divmodhi4>:
+ 1f0:	97 fb       	bst	r25, 7
+ 1f2:	07 2e       	mov	r0, r23
+ 1f4:	16 f4       	brtc	.+4      	; 0x1fa <__divmodhi4+0xa>
+ 1f6:	00 94       	com	r0
+ 1f8:	07 d0       	rcall	.+14     	; 0x208 <__divmodhi4_neg1>
+ 1fa:	77 fd       	sbrc	r23, 7
+ 1fc:	09 d0       	rcall	.+18     	; 0x210 <__divmodhi4_neg2>
+ 1fe:	0e 94 0c 01 	call	0x218	; 0x218 <__udivmodhi4>
+ 202:	07 fc       	sbrc	r0, 7
+ 204:	05 d0       	rcall	.+10     	; 0x210 <__divmodhi4_neg2>
+ 206:	3e f4       	brtc	.+14     	; 0x216 <__divmodhi4_exit>
+
+00000208 <__divmodhi4_neg1>:
+ 208:	90 95       	com	r25
+ 20a:	81 95       	neg	r24
+ 20c:	9f 4f       	sbci	r25, 0xFF	; 255
+ 20e:	08 95       	ret
+
+00000210 <__divmodhi4_neg2>:
+ 210:	70 95       	com	r23
+ 212:	61 95       	neg	r22
+ 214:	7f 4f       	sbci	r23, 0xFF	; 255
+
+00000216 <__divmodhi4_exit>:
+ 216:	08 95       	ret
+
+00000218 <__udivmodhi4>:
+ 218:	aa 1b       	sub	r26, r26
+ 21a:	bb 1b       	sub	r27, r27
+ 21c:	51 e1       	ldi	r21, 0x11	; 17
+ 21e:	07 c0       	rjmp	.+14     	; 0x22e <__udivmodhi4_ep>
+
+00000220 <__udivmodhi4_loop>:
+ 220:	aa 1f       	adc	r26, r26
+ 222:	bb 1f       	adc	r27, r27
+ 224:	a6 17       	cp	r26, r22
+ 226:	b7 07       	cpc	r27, r23
+ 228:	10 f0       	brcs	.+4      	; 0x22e <__udivmodhi4_ep>
+ 22a:	a6 1b       	sub	r26, r22
+ 22c:	b7 0b       	sbc	r27, r23
+
+0000022e <__udivmodhi4_ep>:
+ 22e:	88 1f       	adc	r24, r24
+ 230:	99 1f       	adc	r25, r25
+ 232:	5a 95       	dec	r21
+ 234:	a9 f7       	brne	.-22     	; 0x220 <__udivmodhi4_loop>
+ 236:	80 95       	com	r24
+ 238:	90 95       	com	r25
+ 23a:	bc 01       	movw	r22, r24
+ 23c:	cd 01       	movw	r24, r26
+ 23e:	08 95       	ret
+
+00000240 <_exit>:
+ 240:	f8 94       	cli
+
+00000242 <__stop_program>:
+ 242:	ff cf       	rjmp	.-2      	; 0x242 <__stop_program>
